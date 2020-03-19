@@ -35,7 +35,7 @@ or `yarn deploy-android`
 
 ### Integrating QR Codes or URIs
 
-TonChan supports two kinds of QR codes.
+CirqWallet supports two kinds of QR codes.
 
 * Standard addresses / integrated addresses - This is simply the address encoded as a QR code.
 
