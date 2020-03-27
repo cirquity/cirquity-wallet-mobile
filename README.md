@@ -41,7 +41,7 @@ CirqWallet supports two kinds of QR codes.
 
 * cirquity:// URI encoded as a QR code.
 
-Your uri must begin with `cirquity://` followed by the address to send to, for example, `cirquity://cirqgBLnnswQsHXGnkGF76AXup98o34eUMa3UtzBXRrcEVghRQRnih5MVYEmpaz5EvCY2j4DzwQZEKo5qaJa7c69Tgb2LWWyKNN`
+Your uri must begin with `cirquity://` followed by the address to send to, for example, `cirquity://cirqgEvJZj3bkP7Pwu8hrvhxPojoeVpJSg5sV9CU58oNLJWqJ3usg3kNNxb9ucX8Y5Spjwm1PBLRZ4QGEcn93LAdaWcTU9mQZaG`
 
 There are a few optional parameters.
 
