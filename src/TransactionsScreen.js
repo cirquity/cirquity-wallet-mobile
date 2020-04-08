@@ -169,7 +169,7 @@ export class TransactionDetailsScreen extends React.Component {
                             item={this.state.transaction.blockHeight.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                             {...this.props}
                         />}
-                        
+
                         <ItemDescription
                             title='Hash'
                             item={this.state.transaction.hash}
@@ -201,7 +201,7 @@ export class TransactionDetailsScreen extends React.Component {
 }
 
 /**
- * List of transactions sent + received 
+ * List of transactions sent + received
  */
 export class TransactionsScreen extends React.Component {
     static navigationOptions = {
@@ -287,13 +287,13 @@ export class TransactionsScreen extends React.Component {
             pageNum,
         }, this.updateTransactions);
     }
-    
+
     render() {
-        const syncedMsg = this.state.walletHeight + 10 >= this.state.networkHeight ? 
-            '' 
+        const syncedMsg = this.state.walletHeight + 10 >= this.state.networkHeight ?
+            ''
           : "\nYour wallet isn't fully synced. If you're expecting some transactions, please wait.";
 
-        const noTransactions = 
+        const noTransactions =
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: this.props.screenProps.theme.backgroundColour }}>
                 <Text style={{ fontSize: 20, color: this.props.screenProps.theme.slightlyMoreVisibleColour, justifyContent: 'center', textAlign: 'center' }}>
                     Looks like you haven't sent{"\n"}or received any transactions yet!{"\n"}
@@ -303,7 +303,7 @@ export class TransactionsScreen extends React.Component {
 
         return(
             this.state.numTransactions === 0 ?
-                noTransactions 
+                noTransactions
              : <TransactionList
                 {...this.props}
                 pageNum={this.state.pageNum}
@@ -359,7 +359,7 @@ class TransactionList extends React.Component {
             <View style={{
                 backgroundColor: this.props.screenProps.theme.backgroundColour,
                 flex: 1,
-                marginTop: -50
+                marginTop: -20
             }}>
                 <Header
                     leftComponent={{

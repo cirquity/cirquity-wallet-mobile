@@ -77,6 +77,8 @@ export async function loadWallet() {
                 wallet`
         );
 
+        console.log(data);
+
         if (data && data.rows && data.rows.length === 1) {
             const len = data.rows.item(0).jsonLength;
             let result = '';
@@ -112,6 +114,8 @@ export async function loadWallet() {
                 id ASC`
         );
 
+        console.log(data);
+
         if (data && data.rows && data.rows.length >= 1) {
             const len = data.rows.length;
 
@@ -120,6 +124,8 @@ export async function loadWallet() {
             for (let i = 0; i < len; i++) {
                 result += data.rows.item(i).json;
             }
+
+            console.log(result);
 
             return [ result, undefined ];
         }
@@ -144,7 +150,7 @@ async function createTables(DB) {
     }
 
     await DB.transaction((tx) => {
-        
+
         /* We get JSON out from our wallet backend, and load JSON in from our
            wallet backend - it's a little ugly, but it's faster to just read/write
            json to the DB rather than structuring it. */
@@ -436,7 +442,7 @@ export async function saveToDatabase(wallet) {
 export async function haveWallet() {
     try {
         const value = await AsyncStorage.getItem(Config.coinName + 'HaveWallet');
-        
+
         if (value !== null) {
             return value === 'true';
         }

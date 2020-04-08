@@ -101,7 +101,7 @@ function finishBackgroundSync() {
 
     State.unsubscribe();
 
-    BackgroundFetch.finish(BackgroundFetch.FETCH_RESULT_NEW_DATA);
+    BackgroundFetch.finish();
 
     State.running = false;
 
@@ -191,8 +191,8 @@ async function fromHeadlessJSInit() {
  */
 export async function backgroundSync() {
     if (!await setupBackgroundSync()) {
-        BackgroundFetch.finish(BackgroundFetch.FETCH_RESULT_NO_DATA);
-        return false;
+        BackgroundFetch.finish();
+        return;
     } else {
         State.running = true;
     }
@@ -223,8 +223,8 @@ export async function backgroundSync() {
             break;
         }
 
-        /* Process 30 blocks */
-        for (let i = 0; i < (30 / Config.blocksPerTick); i++) {
+        /* Process 10 blocks */
+        for (let i = 0; i < (300 / Config.blocksPerTick); i++) {
             if (State.shouldStop) {
                 break;
             }
@@ -242,7 +242,7 @@ export async function backgroundSync() {
         saveToDatabase(Globals.wallet);
 
         /* Update our running time */
-        secsRunning = (new Date() - startTime) / 30;
+        secsRunning = (new Date() - startTime) / 300;
     }
 
     finishBackgroundSync();

@@ -49,7 +49,7 @@ const Config = new function() {
     this.blockTargetTime = 30;
 
     /**
-     * How often to process blocks, in millseconds
+     * How often to process blocks, in millisecond's
      */
     this.syncThreadInterval = 4;
 
@@ -68,7 +68,7 @@ const Config = new function() {
      * high a value will cause the event loop to be blocked, and your interaction
      * to be laggy.
      */
-    this.blocksPerTick = 100;
+    this.blocksPerTick = 30;
 
     /**
      * Your coins 'ticker', generally used to refer to the coin, i.e. 123 TRTL
@@ -79,7 +79,7 @@ const Config = new function() {
      * Most people haven't mined any blocks, so lets not waste time scanning
      * them
      */
-    this.scanCoinbaseTransactions = true;
+    this.scanCoinbaseTransactions = false;
 
     /**
      * The minimum fee allowed for transactions, in ATOMIC units
@@ -209,7 +209,12 @@ const Config = new function() {
     /**
      * Displayed in the settings screen
      */
-    this.appVersion = 'v0.1.0';
+    this.appVersion = 'v1.0.0';
+
+    /**
+     * Allows setting a customer user agent string
+     */
+    this.customUserAgentString = `cirq-wallet-backend-v1.0.0`;
 
     /**
      * Base URL for us to chuck a hash on the end, and find a transaction
@@ -228,7 +233,7 @@ const Config = new function() {
     this.googlePlayLink = 'https://play.google.com/store/apps/details?id=com.cirqwallet';
 
     /**
-     * A url to fetch node info from. Should follow the turtlepay format 
+     * A url to fetch node info from. Should follow the turtlepay format
      * detailed here: https://docs.turtlepay.io/blockapi/
      */
     this.nodeListURL = 'https://raw.githubusercontent.com/cirquity/cirquity-node-list/master/cirquity-nodes.json';

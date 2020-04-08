@@ -110,6 +110,15 @@ class globals {
 
             if (data.nodes) {
                 this.daemons = data.nodes;
+
+                this.daemons.push({
+                    "name": "Default Node",
+                    "url": "api-block.cirquity.com",
+                    "port": 443,
+                    "ssl": true,
+                    "fee": 0,
+                    "online": true
+                });
             }
         } catch (error) {
             this.logger.addLogMessage('Failed to get node list from API: ' + error.toString());

@@ -37,7 +37,7 @@ export async function derivePublicKey(
 export async function generateKeyDerivation(
     transactionPublicKey,
     privateViewKey) {
-    
+
     return NativeModules.TurtleCoin.generateKeyDerivation(
         transactionPublicKey, privateViewKey,
     );
@@ -141,7 +141,7 @@ export async function processBlockOutputs(
     });
 
     let inputs = await NativeModules.TurtleCoin.processBlockOutputs(
-        block, privateViewKey, javaSpendKeys, isViewWallet, 
+        block, privateViewKey, javaSpendKeys, isViewWallet,
         processCoinbaseTransactions,
     );
 
@@ -150,19 +150,19 @@ export async function processBlockOutputs(
 
         const spendHeight = 0;
 
-        const globalIndex = data.input.globalOutputIndex === -1 
+        const globalIndex = data.input.globalOutputIndex === -1
                           ? undefined : data.input.globalOutputIndex;
 
         const input = new TransactionInput(
             data.input.keyImage,
             data.input.amount,
             block.blockHeight,
-            data.input.transactionPublicKey, // tx.transactionPublicKey,
+            tx.transactionPublicKey,
             data.input.transactionIndex,
             globalIndex,
             data.input.key,
             spendHeight,
-            data.input.unlockTime, // tx.unlockTime,
+            tx.unlockTime,
             data.input.parentTransactionHash,
         );
 

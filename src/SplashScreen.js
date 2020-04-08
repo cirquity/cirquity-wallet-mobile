@@ -41,6 +41,8 @@ async function tryLoadWallet(navigation) {
         /* Load wallet data from DB */
         let [walletData, dbError] = await loadWallet();
 
+        console.log('walletData', walletData);
+
         if (dbError) {
             await fail(dbError);
             return;
@@ -49,6 +51,9 @@ async function tryLoadWallet(navigation) {
         const [wallet, walletError] = WalletBackend.loadWalletFromJSON(
             Globals.getDaemon(), walletData, Config
         );
+
+        console.log('wallet', wallet);
+
 
         if (walletError) {
             await fail('Error loading wallet: ' + walletError);

@@ -167,7 +167,7 @@ export class TransferScreen extends React.Component {
             amountFontSize: 30,
         }
     }
-    
+
     tick() {
         const [unlockedBalance, lockedBalance] = Globals.wallet.getBalance();
 
@@ -289,7 +289,7 @@ export class TransferScreen extends React.Component {
                                     amount: this.state.amountAtomic,
                                 }
                             );
-                        }} 
+                        }}
                         disabled={!this.state.continueEnabled}
                         {...this.props}
                     />
@@ -331,7 +331,7 @@ class AddressBook extends React.Component {
                         renderItem={({item}) => (
                             <ListItem
                                 title={item.nickname}
-                                subtitle={item.address.substr(0, 15) + '...'}
+                                subtitle={item.address.substr(0, 20) + '...'}
                                 subtitleStyle={{
                                     fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace'
                                 }}
@@ -344,7 +344,7 @@ class AddressBook extends React.Component {
                                         backgroundColor: this.props.screenProps.theme.iconColour,
                                         borderRadius: 45
                                     }}>
-                                        <Text style={[Styles.centeredText, { 
+                                        <Text style={[Styles.centeredText, {
                                             fontSize: 30,
                                             color: this.props.screenProps.theme.primaryColour,
                                         }]}>
@@ -673,7 +673,7 @@ export class NewPayeeScreen extends React.Component {
 
                             /* Add payee to global payee store */
                             Globals.addPayee(payee);
-                            
+
                             const finishFunction = this.props.navigation.getParam('finishFunction', undefined);
 
                             if (finishFunction) {
@@ -774,7 +774,7 @@ export class ConfirmScreen extends React.Component {
             unlockedBalance,
             devFee,
             nodeFee,
-        }
+        };
 
         this.prepareTransaction();
     }
@@ -890,12 +890,12 @@ export class ConfirmScreen extends React.Component {
                 flex: 1,
                 alignItems: 'flex-start',
                 justifyContent: 'flex-start',
-                marginTop: 60,
+                marginTop: 30,
                 marginHorizontal: 30,
             }}>
                 <Animatable.Text
                     style={{
-                        color: 'red',
+                        color: '#df4759',
                         fontSize: 25,
                         marginBottom: 25,
                         fontWeight: 'bold',
@@ -906,7 +906,7 @@ export class ConfirmScreen extends React.Component {
                     Estimating fee and preparing transaction failed!
                 </Animatable.Text>
 
-                <Text style={{ fontSize: 13 }}>
+                <Text style={{ fontSize: 16, color: this.props.screenProps.theme.slightlyMoreVisibleColour }}>
                     {errorMessage}
                 </Text>
             </View>
@@ -989,7 +989,7 @@ export class ConfirmScreen extends React.Component {
                         marginHorizontal: this.state.modifyMemo ? 20 : 30,
                         marginTop: 20,
                     }}>
-                        {this.state.modifyMemo ? 
+                        {this.state.modifyMemo ?
                             <ModifyMemo
                                 memo={this.state.memo}
                                 onChange={(text) => {
@@ -999,7 +999,7 @@ export class ConfirmScreen extends React.Component {
                                 }}
                                 {...this.props}
                             />
-                            : 
+                            :
                             <Text style={{ color: this.props.screenProps.theme.primaryColour, fontSize: 16 }}>
                                 {this.state.memo === '' ? 'None' : this.state.memo}
                             </Text>
@@ -1208,7 +1208,7 @@ export class ChoosePayeeScreen extends React.Component {
                 backgroundColor: this.props.screenProps.theme.backgroundColour,
                 flex: 1,
             }}>
-                <View style={{ 
+                <View style={{
                     alignItems: 'flex-start',
                     justifyContent: 'flex-start',
                     marginLeft: 30,
@@ -1243,7 +1243,7 @@ export class ChoosePayeeScreen extends React.Component {
                     />
                 </View>
 
-                <View style={{ 
+                <View style={{
                     alignItems: 'flex-start',
                     justifyContent: 'flex-start',
                     marginLeft: 30,
@@ -1311,7 +1311,7 @@ export class SendTransactionScreen extends React.Component {
             memo: this.props.navigation.state.params.memo,
             homeEnabled: false,
             sent: false,
-        }
+        };
 
         /* Send the tx in the background (it's async) */
         this.sendTransaction();
@@ -1459,7 +1459,7 @@ export class SendTransactionScreen extends React.Component {
                     onPress={() => {
                         this.props.navigation.dispatch(navigateWithDisabledBack('ChoosePayee'));
                         this.props.navigation.navigate('Main');
-                    }} 
+                    }}
                     disabled={!this.state.homeEnabled}
                     {...this.props}
                 />

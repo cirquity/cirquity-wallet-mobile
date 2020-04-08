@@ -258,7 +258,7 @@ public class TurtleCoinModule extends ReactContextBaseJavaModule {
 
         promise.resolve("");
     }
-    
+
     @ReactMethod
     public void isDozeDisabled(Promise promise) {
         PowerManager pm = (PowerManager)getReactApplicationContext().getSystemService(Context.POWER_SERVICE);
@@ -276,7 +276,7 @@ public class TurtleCoinModule extends ReactContextBaseJavaModule {
         String url,
         Promise promise) {
 
-        /* If the user has specified < 100 per request */
+        /* If the user has specified < 30 per request */
         if (blockCount < BLOCK_COUNT)
         {
             BLOCK_COUNT = blockCount;
@@ -386,9 +386,9 @@ public class TurtleCoinModule extends ReactContextBaseJavaModule {
                 response.append(new String(inputBuffer, 0, len));
             }
 
-            if (BLOCK_COUNT * 2 > 100)
+            if (BLOCK_COUNT * 2 > 30)
             {
-                BLOCK_COUNT = 100;
+                BLOCK_COUNT = 30;
             }
             else
             {
@@ -428,7 +428,7 @@ public class TurtleCoinModule extends ReactContextBaseJavaModule {
 
     private SpendKey[] arrayToSpendKeys(ReadableArray spendKeys) {
         SpendKey[] keys = new SpendKey[spendKeys.size()];
-        
+
         for (int i = 0; i < spendKeys.size(); i++) {
             keys[i] = new SpendKey(spendKeys.getMap(i));
         }

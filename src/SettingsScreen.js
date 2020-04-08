@@ -591,9 +591,9 @@ export class SwapNodeScreen extends React.Component {
                                     }}>
                                         <Text style={[Styles.centeredText, {
                                             fontSize: 15,
-                                            color: '#42ba96',
+                                            color: item.online ? '#00B233' : '#df4759',
                                         }]}>
-                                            Online
+                                            {item.online ? 'Online' : 'Offline'}
                                         </Text>
                                     </View>
                                 }
