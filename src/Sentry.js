@@ -11,10 +11,10 @@ import Config from './Config';
 /* Manually comparing to TurtleCoin to try and prevent getting errors reported
    for forks... */
 /* DO NOT CHANGE THIS LINE WITHOUT ALSO ALTERING THE Sentry.config() LINE - See readme and sentry docs. */
-const sentryIsEnabled = !__DEV__ && Config.coinName === 'TurtleCoin';
+const sentryIsEnabled = !__DEV__ && Config.coinName === 'Cirquity';
 
 export function reportCaughtException(err) {
-    /* Sentry doesn't properly report arbitary objects. Convert to string if
+    /* Sentry doesn't properly report arbitrary objects. Convert to string if
        it ain't a string or an error. */
     if (!_.isString(err) && !(err instanceof Error)) {
         err = JSON.stringify(err, null, 4);
@@ -31,7 +31,7 @@ export function reportCaughtException(err) {
 export function initSentry() {
     if (sentryIsEnabled) {
         /* CHANGE THIS IF YOU ARE FORKING! */
-        Sentry.init({ 
+        Sentry.init({
           dsn: 'https://1c674bdfca37453ebb248214322071a5@sentry.io/2476441',
         });
 
